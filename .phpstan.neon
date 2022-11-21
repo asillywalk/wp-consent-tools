@@ -1,0 +1,8 @@
+parameters:
+  level: 5
+  paths:
+    - src/
+  scanFiles:
+    - vendor/htmlburger/carbon-fields/core/functions.php
+includes:
+  - vendor/szepeviktor/phpstan-wordpress/extension.neon

@@ -1,0 +1,30 @@
+{
+    "name": "sillynet/wp-consent-tools",
+    "description": "A backend for the consent-tools library in Wordpress.",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Sillynet\\ConsentTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andreas Maros",
+            "email": "andi@asillywalk.de"
+        }
+    ],
+    "require": {
+	    "php": ">=7.4",
+        "sillynet/adretto": "^0.2",
+        "psr/container": "^1.1",
+        "htmlburger/carbon-fields": "^3.3"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.4",
+        "szepeviktor/phpstan-wordpress": "^1.0"
+    },
+    "scripts": {
+        "lint": "phpstan analyse -c .phpstan.neon"
+    }
+}
