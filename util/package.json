@@ -1,6 +1,6 @@
 {
   "name": "@sillynet/wp-consent-tools-util",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Utilities for the sillynet/wp-consent-tools PHP composer package",
   "main": "",
   "engines": {
