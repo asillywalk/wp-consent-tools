@@ -24,11 +24,9 @@ class ConsentTools
 
     public function __construct(
         Translator $translator,
-        Theme $theme,
         ContainerInterface $container
     ) {
         $this->translator = $translator;
-        $this->theme = $theme;
         // @FIXME: can we make this more explicit – via a contract maybe?
         $textDomain = $container->get('textDomain');
         if (!empty($textDomain)) {
