@@ -36,37 +36,38 @@ object with the following shape:
 
 ```typescript
 type ServiceConfig = {
-	// regular fields
-	prettyName?: string;           // The pretty name for the service as it
+    // regular fields
+    prettyName?: string;           // The pretty name for the service as it
                                    // should be shown to user, in placeholder
                                    // templates or settings modals
-	cmpServiceId?: string;         // The ID of this service as defined by
+    cmpServiceId?: string;         // The ID of this service as defined by
                                    // by the CMP used. If you're running
                                    // consent-tools in standalone mode,
                                    // this can simply be ignored.
-	privacyPolicySection?: string; // An anchor for linking to this specific
+    privacyPolicySection?: string; // An anchor for linking to this specific
                                    // service's section on the privacy policy
                                    // page.
+    
     // translated fields, these will differ based on the requested language
     // ("en" in this example)
-	titleText?: string;             // override for default titleText below
-	buttonText?: string;            // override for default buttonText below
-	description?: string;           // override for default description below
+    titleText?: string;             // override for default titleText below
+    buttonText?: string;            // override for default buttonText below
+    description?: string;           // override for default description below
 }
 
 type ConsentToolsConfig = {
-	default: {
-		titleText: string;          // Default text to be displayed in the
+    default: {
+        titleText: string;          // Default text to be displayed in the
                                     // placeholder element's heading if not
                                     // overridden by the service's config.
-		description: string;        // Default text to be displayed in the
+        description: string;        // Default text to be displayed in the
                                     // placeholder element's body. May contain
                                     // %templateTags%.
-		buttonText: string;         // Default text to be displayed in the
+        buttonText: string;         // Default text to be displayed in the
                                     // placeholder element's "consent" button.
-	},
+    },
     types: {
-		[serviceId: string]: ServiceConfig
+        [serviceId: string]: ServiceConfig
     }
 }
 ```
