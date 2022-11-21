@@ -5,6 +5,7 @@ namespace Sillynet\ConsentTools;
 use Sillynet\Adretto\Contracts\AdrettoExtension;
 use Sillynet\ConsentTools\Action\InitCarbonFieldsAction;
 use Sillynet\ConsentTools\Action\RegisterConfigFieldsAction;
+use Sillynet\ConsentTools\Action\RegisterRestAction;
 
 class ConsentToolsExtension implements AdrettoExtension
 {
@@ -24,6 +25,7 @@ class ConsentToolsExtension implements AdrettoExtension
         return [
             InitCarbonFieldsAction::class,
             RegisterConfigFieldsAction::class,
+            RegisterRestAction::class,
         ];
     }
 }
