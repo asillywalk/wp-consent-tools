@@ -16,6 +16,32 @@ via composer:
 
 Make sure you have Composer autoload or an alternative class loader present.
 
+### Carbon Fields
+
+This packages uses [CarbonFields](https://docs.carbonfields.net/) to generate
+the settings page. Unfortunately CarbonFields can be somewhat tricky to set up
+when used outside a theme's root directory.
+**If your theme files live in `public/wp-content/themes/<yourtheme>/`, and you
+have your composer.json and `vendor/` directory there, you're fine.**
+
+If you however maintain your Composer dependencies outside of the theme 
+directory, or use some symlink setup, you might be in trouble. The simplest
+solution is to add a step to your setup and build process to make CF's JS and 
+CSS assets publicly available at a known path:
+
+1. As part of your build pipeline, copy the entire `vendor/htmlburger/carbon-fields`
+   directory into `public/wp-content` (or you could copy just the `*.js` and
+   `*.css` files, but you'll have to keep the directory structure). A simple
+   solution is to actually use your theme directory, so let's use
+   `public/wp-content/themes/<mytheme>/vendor/cf` as an example.
+2. Tell CarbonFields where it can find its assets by setting a constant _before_
+   CF is "booted", somewhere near the top of your `functions.php` would work
+   fine in most scenarios: 
+   ```
+   define('Carbon_Fields\DIR', get_theme_file_path('vendor/cf'));
+   ```
+
+
 ## Usage
 
 Load the extension in your Adretto configuration file:
