@@ -1,3 +1,6 @@
+dev:
+	composer install
+
 # Run basic linting with prettier & phpstan
 lint:
 	@cd util/ \

@@ -1,6 +1,6 @@
-# Wordpress Consent Tools Server & Administration
+# Wordpress Consent Tools Server & Administration for Adretto
 
-_A backend for the consent-tools library in Wordpress._
+_A backend for the consent-tools library in Wordpress using Adretto._
 
 ---
 
@@ -13,6 +13,9 @@ via composer:
 ```shell
 > composer require sillynet/wp-consent-tools
 ```
+
+This library is an extension to the [Adretto](https://github.com/asillywalk/adretto)
+Wordpress ADR framework, so you will need to have Adretto installed and set up.
 
 Make sure you have Composer autoload or an alternative class loader present.
 
@@ -107,3 +110,6 @@ type ConsentToolsConfig = {
 - [NVM](https://github.com/nvm-sh/nvm) and nodeJS LTS (v16.x)
 - Nice to have: GNU Make (or drop-in alternative)
 
+### Makefile
+
+Most everyday development tasks are covered in the Makefile.
