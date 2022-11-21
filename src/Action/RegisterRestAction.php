@@ -45,7 +45,7 @@ class RegisterRestAction extends RestAction
     /**
      * @inheritDoc
      */
-    protected function handle(WP_REST_Request $request)
+    public function handle(WP_REST_Request $request)
     {
         $language = $request['lang'];
 
