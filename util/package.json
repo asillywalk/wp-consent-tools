@@ -1,6 +1,6 @@
 {
   "name": "@sillynet/adretto-consent-tools-util",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utilities for the sillynet/adretto-consent-tools PHP composer package",
   "main": "",
   "engines": {
