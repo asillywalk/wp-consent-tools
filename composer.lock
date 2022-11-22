@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae4f67359095c98a0ad526a59231634f",
+    "content-hash": "25776a9cc2c2b1d670cf232e067e1f6e",
     "packages": [
         {
             "name": "gebruederheitz/simple-singleton",
@@ -472,16 +472,16 @@
         },
         {
             "name": "sillynet/adretto",
-            "version": "v0.2.8",
+            "version": "v0.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asillywalk/adretto.git",
-                "reference": "4aafee95e69a44585ec063c9844a18290d57f9d6"
+                "reference": "2894406fe2a1fc581e4567956c13a766d6cd5c96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asillywalk/adretto/zipball/4aafee95e69a44585ec063c9844a18290d57f9d6",
-                "reference": "4aafee95e69a44585ec063c9844a18290d57f9d6",
+                "url": "https://api.github.com/repos/asillywalk/adretto/zipball/2894406fe2a1fc581e4567956c13a766d6cd5c96",
+                "reference": "2894406fe2a1fc581e4567956c13a766d6cd5c96",
                 "shasum": ""
             },
             "require": {
@@ -514,9 +514,9 @@
             "description": "Write modern PHP (Action-Domain-Responder) in Wordpress themes.",
             "support": {
                 "issues": "https://github.com/asillywalk/adretto/issues",
-                "source": "https://github.com/asillywalk/adretto/tree/v0.2.8"
+                "source": "https://github.com/asillywalk/adretto/tree/v0.2.9"
             },
-            "time": "2022-11-21T19:50:42+00:00"
+            "time": "2022-11-21T22:28:33+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

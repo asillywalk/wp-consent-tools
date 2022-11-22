@@ -1,7 +1,7 @@
 {
-  "name": "@sillynet/wp-consent-tools-util",
+  "name": "@sillynet/adretto-consent-tools-util",
   "version": "0.1.0",
-  "description": "Utilities for the sillynet/wp-consent-tools PHP composer package",
+  "description": "Utilities for the sillynet/adretto-consent-tools PHP composer package",
   "main": "",
   "engines": {
     "node": ">=16"
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/gebruederheitz/wp-simple-rest.git"
   },
-  "author": "/gebrüderheitz <kontakt@gebruederheitz.de>",
+  "author": "Andreas Maros <andi@asillywalk.de>",
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/gebruederheitz/wp-simple-rest/issues"

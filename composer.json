@@ -1,6 +1,6 @@
 {
-    "name": "sillynet/wp-consent-tools",
-    "description": "A backend for the consent-tools library in Wordpress.",
+    "name": "sillynet/adretto-consent-tools",
+    "description": "A backend for the consent-tools library in Wordpress using Adretto.",
     "type": "library",
     "license": "GPL-3.0-only",
     "autoload": {

@@ -11,7 +11,7 @@ _A backend for the consent-tools library in Wordpress using Adretto._
 
 via composer:
 ```shell
-> composer require sillynet/wp-consent-tools
+> composer require sillynet/adretto-consent-tools
 ```
 
 This library is an extension to the [Adretto](https://github.com/asillywalk/adretto)
