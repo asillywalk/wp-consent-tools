@@ -192,6 +192,37 @@ class ConsentTools
         ];
 
         $container->add_tab(__('Services', $this->textDomain), [$serviceField]);
+        $container->add_tab(__('Defaults (global)', $this->textDomain), [
+            Field::make_checkbox(
+                $this->getFieldName(ConfigFields::DEFAULT_CLICK_ON_CONSENT),
+                __(
+                    'Simulate a click after consent of given by default',
+                    $this->textDomain,
+                ),
+            )->set_default_value(false),
+            Field::make_checkbox(
+                $this->getFieldName(ConfigFields::DEFAULT_LOAD_ALL),
+                __(
+                    'Imply permanent consent intention by default (deactivate when using buttons)',
+                    $this->textDomain,
+                ),
+            )->set_default_value(true),
+            Field::make_checkbox(
+                $this->getFieldName(ConfigFields::DEFAULT_MODAL_OPENER_BUTTON),
+                __(
+                    'Display a modal opener button ("More info") for each service by default',
+                    $this->textDomain,
+                ),
+            )->set_default_value(true),
+            Field::make_select(
+                $this->getFieldName(
+                    ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
+                ),
+                __('Type of permanent consent option', $this->textDomain),
+            )
+                ->set_options(self::PERMANENT_CONSENT_OPTIONS)
+                ->set_default_value('none'),
+        ]);
 
         foreach ($this->translator->getAllLanguages() as $language) {
             $lang = $language['slug'];
@@ -205,8 +236,14 @@ class ConsentTools
                         $language['name'],
                 ),
                 Field::make_text(
-                    $this->getFieldName(ConfigFields::SERVICE_PRETTY_NAME, $lang),
-                    $this->labelWithLanguageSuffix(__('Pretty Name', $this->textDomain), $lang),
+                    $this->getFieldName(
+                        ConfigFields::SERVICE_PRETTY_NAME,
+                        $lang,
+                    ),
+                    $this->labelWithLanguageSuffix(
+                        __('Pretty Name', $this->textDomain),
+                        $lang,
+                    ),
                 ),
                 Field::make_textarea(
                     $this->getFieldName(
@@ -348,31 +385,6 @@ class ConsentTools
                             $this->textDomain,
                         ),
                     )->set_default_value('Inhalt laden'),
-                    Field::make_checkbox(
-                        $this->getFieldName(
-                            ConfigFields::DEFAULT_CLICK_ON_CONSENT,
-                        ),
-                        __(
-                            'Simulate a click after consent of given by default',
-                            $this->textDomain,
-                        ),
-                    )->set_default_value(false),
-                    Field::make_checkbox(
-                        $this->getFieldName(ConfigFields::DEFAULT_LOAD_ALL),
-                        __(
-                            'Imply permanent consent intention by default (deactivate when using buttons)',
-                            $this->textDomain,
-                        ),
-                    )->set_default_value(true),
-                    Field::make_checkbox(
-                        $this->getFieldName(
-                            ConfigFields::DEFAULT_MODAL_OPENER_BUTTON,
-                        ),
-                        __(
-                            'Display a modal opener button ("More info") for each service by default',
-                            $this->textDomain,
-                        ),
-                    )->set_default_value(true),
                     Field::make_text(
                         $this->getFieldName(
                             ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
@@ -383,17 +395,6 @@ class ConsentTools
                             $this->textDomain,
                         ),
                     )->set_default_value('Mehr Informationen'),
-                    Field::make_select(
-                        $this->getFieldName(
-                            ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
-                        ),
-                        __(
-                            'Type of permanent consent option',
-                            $this->textDomain,
-                        ),
-                    )
-                        ->set_options(self::PERMANENT_CONSENT_OPTIONS)
-                        ->set_default_value('none'),
                 ],
             );
         }
@@ -418,7 +419,8 @@ class ConsentTools
             'cmpServiceId' => ConfigFields::SERVICE_CMP_SERVICE_ID,
             'defaultLoadAll' => ConfigFields::SERVICE_DEFAULT_LOAD_ALL,
             'modalOpenerButton' => ConfigFields::SERVICE_MODAL_OPENER_BUTTON,
-            'permanentConsentType' => ConfigFields::SERVICE_PERMANENT_CONSENT_TYPE,
+            'permanentConsentType' =>
+                ConfigFields::SERVICE_PERMANENT_CONSENT_TYPE,
             'privacyPolicySection' =>
                 ConfigFields::SERVICE_PRIVACY_POLICY_SECTION,
             'reloadOnConsent' => ConfigFields::SERVICE_RELOAD_ON_CONSENT,
@@ -428,9 +430,11 @@ class ConsentTools
             'titleText' => ConfigFields::SERVICE_TITLE_TEXT,
             'buttonText' => ConfigFields::SERVICE_BUTTON_TEXT,
             'checkboxLabel' => ConfigFields::SERVICE_PERMANENT_CONSENT_LABEL,
-            'checkboxProviderName' => ConfigFields::SERVICE_CHECKBOX_PROVIDER_NAME,
+            'checkboxProviderName' =>
+                ConfigFields::SERVICE_CHECKBOX_PROVIDER_NAME,
             'serviceDescription' => ConfigFields::SERVICE_DESCRIPTION,
-            'modalOpenerButtonText' => ConfigFields::SERVICE_MODAL_OPENER_BUTTON_TEXT,
+            'modalOpenerButtonText' =>
+                ConfigFields::SERVICE_MODAL_OPENER_BUTTON_TEXT,
             'placeholderBody' => ConfigFields::SERVICE_PLACEHOLDER_BODY,
             'servicePrettyName' => ConfigFields::SERVICE_PRETTY_NAME,
         ];
