@@ -231,7 +231,7 @@ class ConsentTools
             $serviceFieldFields = array_merge($serviceFieldFields, [
                 Field::make_separator(
                     'sep-' . $lang,
-                    __('Placeholder', $this->textDomain) .
+                    __('Service l11n', $this->textDomain) .
                         ' ' .
                         $language['name'],
                 ),
@@ -242,19 +242,6 @@ class ConsentTools
                     ),
                     $this->labelWithLanguageSuffix(
                         __('Pretty Name', $this->textDomain),
-                        $lang,
-                    ),
-                ),
-                Field::make_textarea(
-                    $this->getFieldName(
-                        ConfigFields::SERVICE_PLACEHOLDER_BODY,
-                        $lang,
-                    ),
-                    $this->labelWithLanguageSuffix(
-                        __(
-                            'Service Placeholder Body Content',
-                            $this->textDomain,
-                        ),
                         $lang,
                     ),
                 ),
@@ -271,6 +258,26 @@ class ConsentTools
                         $lang,
                     ),
                 )->set_rows(3),
+                Field::make_separator(
+                    'sep-' . $lang,
+                    __('Placeholder', $this->textDomain) .
+                        ' ' .
+                        $language['name'],
+                ),
+
+                Field::make_textarea(
+                    $this->getFieldName(
+                        ConfigFields::SERVICE_PLACEHOLDER_BODY,
+                        $lang,
+                    ),
+                    $this->labelWithLanguageSuffix(
+                        __(
+                            'Service Placeholder Body Content',
+                            $this->textDomain,
+                        ),
+                        $lang,
+                    ),
+                ),
                 Field::make_text(
                     $this->getFieldName(
                         ConfigFields::SERVICE_TITLE_TEXT,
@@ -456,7 +463,9 @@ class ConsentTools
                     $service[$this->getFieldName($metaFieldName, $lang)] ??
                     null;
                 if (!empty($value)) {
-                    $serviceDef[$key] = $value;
+                    $serviceDef[$key] = [
+                        $lang => $value,
+                    ];
                 }
             }
 
