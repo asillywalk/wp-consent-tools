@@ -7,6 +7,8 @@ class ConfigFields
     public const SERVICES = 'services';
     public const SERVICE_ID = 'id';
     public const SERVICE_CMP_SERVICE_ID = 'cmp_service_id';
+    public const SERVICE_TIER = 'tier';
+    public const SERVICE_CATEGORY = 'category';
     public const SERVICE_CLICK_ON_CONSENT = 'click_on_consent';
     public const SERVICE_DEFAULT_LOAD_ALL = 'service_default_load_all';
     public const SERVICE_MODAL_OPENER_BUTTON = 'modal_opener_button';

@@ -145,6 +145,18 @@ class ConsentTools
             )->set_help_text(
                 'Set this value if your CMP uses a different ID for this service/vendor than the above.',
             ),
+            Field::make_select(
+                $this->getFieldName(ConfigFields::SERVICE_TIER),
+                __('Service Consent Tier', $this->textDomain),
+            )->set_options([
+                'Red (necessary) – 0' => 0,
+                'Amber (anonymous & UX) – 1' => 1,
+                'Green (marketing & analytics) – 2' => 2,
+            ])->set_default_value(2),
+            Field::make_text(
+                $this->getFieldName(ConfigFields::SERVICE_CATEGORY),
+                __('Category', $this->textDomain),
+            ),
             Field::make_text(
                 $this->getFieldName(
                     ConfigFields::SERVICE_PRIVACY_POLICY_SECTION,
@@ -431,6 +443,8 @@ class ConsentTools
             'privacyPolicySection' =>
                 ConfigFields::SERVICE_PRIVACY_POLICY_SECTION,
             'reloadOnConsent' => ConfigFields::SERVICE_RELOAD_ON_CONSENT,
+            'tier' => ConfigFields::SERVICE_TIER,
+            'category' => ConfigFields::SERVICE_CATEGORY,
         ];
 
         $translatedFields = [
