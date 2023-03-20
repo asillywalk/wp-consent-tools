@@ -149,9 +149,9 @@ class ConsentTools
                 $this->getFieldName(ConfigFields::SERVICE_TIER),
                 __('Service Consent Tier', $this->textDomain),
             )->set_options([
-                'Red (necessary) – 0' => '0',
-                'Amber (anonymous & UX) – 1' => '1',
-                'Green (marketing & analytics) – 2' => '2',
+                '0' => 'Red (necessary) – 0',
+                '1' => 'Amber (anonymous & UX) – 1',
+                '2' => 'Green (marketing & analytics) – 2',
             ])->set_default_value('2'),
             Field::make_text(
                 $this->getFieldName(ConfigFields::SERVICE_CATEGORY),
