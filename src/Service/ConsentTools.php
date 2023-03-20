@@ -230,7 +230,7 @@ class ConsentTools
             // translated fields
             $serviceFieldFields = array_merge($serviceFieldFields, [
                 Field::make_separator(
-                    'sep-' . $lang,
+                    'sep-1-' . $lang,
                     __('Service l11n', $this->textDomain) .
                         ' ' .
                         $language['name'],
@@ -259,7 +259,7 @@ class ConsentTools
                     ),
                 )->set_rows(3),
                 Field::make_separator(
-                    'sep-' . $lang,
+                    'sep-2-' . $lang,
                     __('Placeholder', $this->textDomain) .
                         ' ' .
                         $language['name'],
