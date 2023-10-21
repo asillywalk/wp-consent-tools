@@ -71,12 +71,6 @@ class ConsentTools
     {
         return [
             'default' => [
-                'ph_PermanentConsentLabel' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_CHECKBOX_LABEL,
-                        $lang,
-                    ),
-                ],
                 'clickOnConsent' => $this->getFieldValue(
                     ConfigFields::DEFAULT_CLICK_ON_CONSENT,
                 ),
@@ -86,16 +80,25 @@ class ConsentTools
                 'modalOpenerButton' => $this->getFieldValue(
                     ConfigFields::DEFAULT_MODAL_OPENER_BUTTON,
                 ),
+                'permanentConsentType' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
+                ),
+                'privacyPolicyUrl' => $this->getPrivacyPolicyUrl($lang),
+            ],
+            'types' => $this->getMappedServices($lang),
+            'dict' => [
+                'ph_PermanentConsentLabel' => [
+                    $lang => $this->getFieldValue(
+                        ConfigFields::DEFAULT_CHECKBOX_LABEL,
+                        $lang,
+                    ),
+                ],
                 'ph_ModalOpenerButtonText' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
                         $lang,
                     ),
                 ],
-                'permanentConsentType' => $this->getFieldValue(
-                    ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
-                ),
-                'privacyPolicyUrl' => $this->getPrivacyPolicyUrl($lang),
                 'ph_TitleText' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_TITLE_TEXT,
@@ -115,7 +118,6 @@ class ConsentTools
                     ),
                 ],
             ],
-            'types' => $this->getMappedServices($lang),
         ];
     }
 
@@ -456,14 +458,15 @@ class ConsentTools
 
         $translatedFields = [
             'titleText' => ConfigFields::SERVICE_TITLE_TEXT,
-            'buttonText' => ConfigFields::SERVICE_BUTTON_TEXT,
-            'checkboxLabel' => ConfigFields::SERVICE_PERMANENT_CONSENT_LABEL,
+            'ph_ButtonText' => ConfigFields::SERVICE_BUTTON_TEXT,
+            'ph_PermanentConsentLabel' =>
+                ConfigFields::SERVICE_PERMANENT_CONSENT_LABEL,
             'checkboxProviderName' =>
                 ConfigFields::SERVICE_CHECKBOX_PROVIDER_NAME,
             'serviceDescription' => ConfigFields::SERVICE_DESCRIPTION,
-            'modalOpenerButtonText' =>
+            'ph_ModalOpenerButtonText' =>
                 ConfigFields::SERVICE_MODAL_OPENER_BUTTON_TEXT,
-            'placeholderBody' => ConfigFields::SERVICE_PLACEHOLDER_BODY,
+            'ph_Body' => ConfigFields::SERVICE_PLACEHOLDER_BODY,
             'servicePrettyName' => ConfigFields::SERVICE_PRETTY_NAME,
         ];
 
