@@ -489,7 +489,7 @@ class ConsentTools
                     $service[$this->getFieldName($metaFieldName, $lang)] ??
                     null;
                 if (!empty($value)) {
-                    $dict[$serviceId] = $value;
+                    $dict[$key][$serviceId] = $value;
                     //                    $serviceDef[$key] = [
                     //                        $lang => $value,
                     //                    ];
