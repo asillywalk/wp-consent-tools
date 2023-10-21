@@ -69,6 +69,39 @@ class ConsentTools
      */
     public function getConsentToolsConfig(string $lang): array
     {
+        $dict = [
+            'ph_PermanentConsentLabel' => [
+                'default' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_CHECKBOX_LABEL,
+                    $lang,
+                ),
+            ],
+            'ph_ModalOpenerButtonText' => [
+                'default' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
+                    $lang,
+                ),
+            ],
+            'ph_TitleText' => [
+                'default' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_TITLE_TEXT,
+                    $lang,
+                ),
+            ],
+            'ph_Body' => [
+                'default' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_PLACEHOLDER_BODY,
+                    $lang,
+                ),
+            ],
+            'ph_ButtonText' => [
+                'default' => $this->getFieldValue(
+                    ConfigFields::DEFAULT_BUTTON_TEXT,
+                    $lang,
+                ),
+            ],
+        ];
+
         return [
             'default' => [
                 'clickOnConsent' => $this->getFieldValue(
@@ -85,39 +118,8 @@ class ConsentTools
                 ),
                 'privacyPolicyUrl' => $this->getPrivacyPolicyUrl($lang),
             ],
-            'types' => $this->getMappedServices($lang),
-            'dict' => [
-                'ph_PermanentConsentLabel' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_CHECKBOX_LABEL,
-                        $lang,
-                    ),
-                ],
-                'ph_ModalOpenerButtonText' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
-                        $lang,
-                    ),
-                ],
-                'ph_TitleText' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_TITLE_TEXT,
-                        $lang,
-                    ),
-                ],
-                'ph_Body' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_PLACEHOLDER_BODY,
-                        $lang,
-                    ),
-                ],
-                'ph_ButtonText' => [
-                    $lang => $this->getFieldValue(
-                        ConfigFields::DEFAULT_BUTTON_TEXT,
-                        $lang,
-                    ),
-                ],
-            ],
+            'types' => $this->getMappedServices($lang, $dict),
+            'dict' => $dict,
         ];
     }
 
@@ -437,7 +439,7 @@ class ConsentTools
                 <% } %>");
     }
 
-    protected function getMappedServices($lang): array
+    protected function getMappedServices($lang, array &$dict = []): array
     {
         $rawServices = $this->getFieldValue(ConfigFields::SERVICES);
         $services = [];
@@ -487,9 +489,10 @@ class ConsentTools
                     $service[$this->getFieldName($metaFieldName, $lang)] ??
                     null;
                 if (!empty($value)) {
-                    $serviceDef[$key] = [
-                        $lang => $value,
-                    ];
+                    $dict[$serviceId] = $value;
+                    //                    $serviceDef[$key] = [
+                    //                        $lang => $value,
+                    //                    ];
                 }
             }
 
