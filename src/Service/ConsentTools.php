@@ -99,12 +99,14 @@ class ConsentTools
                         $lang,
                     ),
                 ],
-                'placeholderBody' => $this->getFieldValue(
-                    ConfigFields::DEFAULT_PLACEHOLDER_BODY,
-                    $lang,
-                ),
+                'placeholderBody' => [
+                    $lang => $this->getFieldValue(
+                        ConfigFields::DEFAULT_PLACEHOLDER_BODY,
+                        $lang,
+                    ),
+                ],
                 'buttonText' => [
-                    'en' => $this->getFieldValue(
+                    $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_BUTTON_TEXT,
                         $lang,
                     ),
@@ -148,11 +150,13 @@ class ConsentTools
             Field::make_select(
                 $this->getFieldName(ConfigFields::SERVICE_TIER),
                 __('Service Consent Tier', $this->textDomain),
-            )->set_options([
-                '0' => 'Red (necessary) – 0',
-                '1' => 'Amber (anonymous & UX) – 1',
-                '2' => 'Green (marketing & analytics) – 2',
-            ])->set_default_value('2'),
+            )
+                ->set_options([
+                    '0' => 'Red (necessary) – 0',
+                    '1' => 'Amber (anonymous & UX) – 1',
+                    '2' => 'Green (marketing & analytics) – 2',
+                ])
+                ->set_default_value('2'),
             Field::make_text(
                 $this->getFieldName(ConfigFields::SERVICE_CATEGORY),
                 __('Category', $this->textDomain),
