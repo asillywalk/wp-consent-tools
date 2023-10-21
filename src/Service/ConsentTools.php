@@ -86,9 +86,12 @@ class ConsentTools
                 'modalOpenerButton' => $this->getFieldValue(
                     ConfigFields::DEFAULT_MODAL_OPENER_BUTTON,
                 ),
-                'modalOpenerButtonText' => $this->getFieldValue(
-                    ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
-                ),
+                'modalOpenerButtonText' => [
+                    $lang => $this->getFieldValue(
+                        ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
+                        $lang,
+                    ),
+                ],
                 'permanentConsentType' => $this->getFieldValue(
                     ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
                 ),
