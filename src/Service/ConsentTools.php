@@ -71,7 +71,7 @@ class ConsentTools
     {
         return [
             'default' => [
-                'checkboxLabel' => [
+                'ph_PermanentConsentLabel' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_CHECKBOX_LABEL,
                         $lang,
@@ -86,7 +86,7 @@ class ConsentTools
                 'modalOpenerButton' => $this->getFieldValue(
                     ConfigFields::DEFAULT_MODAL_OPENER_BUTTON,
                 ),
-                'modalOpenerButtonText' => [
+                'ph_ModalOpenerButtonText' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_MODAL_OPENER_BUTTON_TEXT,
                         $lang,
@@ -96,19 +96,19 @@ class ConsentTools
                     ConfigFields::DEFAULT_PERMANENT_CONSENT_TYPE,
                 ),
                 'privacyPolicyUrl' => $this->getPrivacyPolicyUrl($lang),
-                'titleText' => [
+                'ph_TitleText' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_TITLE_TEXT,
                         $lang,
                     ),
                 ],
-                'placeholderBody' => [
+                'ph_Body' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_PLACEHOLDER_BODY,
                         $lang,
                     ),
                 ],
-                'buttonText' => [
+                'ph_ButtonText' => [
                     $lang => $this->getFieldValue(
                         ConfigFields::DEFAULT_BUTTON_TEXT,
                         $lang,
